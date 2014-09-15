@@ -16,17 +16,37 @@
 @property (strong, nonatomic) Card *lastTouchedCard;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
-@property (weak, nonatomic) IBOutlet UISwitch *gameSelectorSwitch;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *gameSegmentedControl;
+@property (strong, nonatomic) NSMutableArray *history; //of description (NSStrings)
+@property (weak, nonatomic) IBOutlet UISlider *histotySlider;
+@property (strong, nonatomic) NSString *actionDescription;
 @end
 
 @implementation CardGameViewController
 
+
+- (NSMutableArray *)history {
+    if (!_history) {
+        _history = [[NSMutableArray alloc] init];
+    }
+    return _history;
+}
+
 - (IBAction)touchDealButton:(id)sender {
     // reset the game object - this will start a new game the next time
     self.game = nil;
+    self.history = nil;
     [self updateUI];
-    self.gameSelectorSwitch.enabled = YES;
+    self.gameSegmentedControl.enabled = YES;
+}
+
+- (IBAction)valueChangedForSegmentedControl:(UISegmentedControl *)sender {
+    if (self.gameSegmentedControl.selectedSegmentIndex == 0) {
+        self.game.numMatchMode = 2;
+    } else {
+        self.game.numMatchMode = 3;
+    }
 }
 
 - (CardMatchingGame *)game {
@@ -42,23 +62,14 @@
 }
 
 - (IBAction)touchCardButton:(UIButton *)sender {
-    if (self.gameSelectorSwitch.enabled) {
-        self.gameSelectorSwitch.enabled = NO;
+    if (self.gameSegmentedControl.enabled) {
+        self.gameSegmentedControl.enabled = NO;
     }
     NSUInteger chosenButtonIndex = [self.cardButtons indexOfObject:sender];
     self.lastTouchedCard = [self.game cardAtIndex:chosenButtonIndex];
     [self.game chooseCardAtIndex:chosenButtonIndex];
     [self updateUI];
  }
-
-- (IBAction)valueChangedForGameMatcher:(UISwitch *)sender {
-    // for now the value of on means turn on 3 player mode
-    if (self.gameSelectorSwitch.on) {
-        self.game.numMatchMode = 3;
-    } else {
-        self.game.numMatchMode = 2;
-    }
-}
 
 - (void)updateUI {
     for (UIButton *cardButton in self.cardButtons) {
@@ -71,8 +82,9 @@
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld",
                             (long)self.game.score];
-    [self setDescription];
-    
+    [self setActionDescription];
+    [self.histotySlider setValue:1.0 animated:YES];
+    [self updateDescriptionLabelText:[self.history count]];
 }
 
 - (NSString *)titleForCard:(Card *)card {
@@ -83,16 +95,31 @@
     return [UIImage imageNamed:card.chosen ? @"cardfront" : @"cardback"];
 }
 
-- (void) setDescription {
-    self.descriptionLabel.text = [NSString stringWithFormat:@"Scored: %ld", (long)self.game.lastMatchScore];
+- (IBAction)valueChangedForSlider:(UISlider *)sender {
+    [self updateDescriptionLabelText:(long)[sender value] * [self.history count]];
+}
+
+- (void) updateDescriptionLabelText:(long)index {
+    if (index < 0) {
+        index = 0;
+    }else if (index >= [self.history count]) {
+        index = [self.history count] -1;
+    }
+    self.descriptionLabel.text = [self.history objectAtIndex:index];
+}
+
+- (void) setActionDescription {
+    NSString *otherCards = [self.game.lastOtherCards componentsJoinedByString:@","];
     
     if (self.game.lastMatchScore > 0) {
-        self.descriptionLabel.text = [NSString stringWithFormat:@"Matched %@%@ for %ld points", self.lastTouchedCard.contents, [[self.game.lastOtherCards firstObject] contents], (long)self.game.lastMatchScore];
+        self.actionDescription = [NSString stringWithFormat:@"Matched %@%@ for %ld points", self.lastTouchedCard.contents, otherCards, (long)self.game.lastMatchScore];
     } else if (self.game.lastMatchScore < 0 ) {
-        self.descriptionLabel.text = [NSString stringWithFormat:@"%@%@ don't match %ld point penalty!", self.lastTouchedCard.contents, [[self.game.lastOtherCards firstObject] contents], (long)self.game.lastMatchScore];
+        self.actionDescription = [NSString stringWithFormat:@"%@%@ don't match %ld point penalty!", self.lastTouchedCard.contents, otherCards, (long)self.game.lastMatchScore];
     } else {
-        self.descriptionLabel.text = self.lastTouchedCard.contents;
+        self.actionDescription = self.lastTouchedCard.contents;
     }
+    
+    [self.history addObject:self.actionDescription];
     
 }
 

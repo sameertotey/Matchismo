@@ -305,13 +305,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMc-Fw-Hc3">
-                                <rect key="frame" x="13" y="442" width="95" height="28"/>
+                                <rect key="frame" x="8" y="442" width="95" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sSj-wS-cpg">
-                                <rect key="frame" x="205" y="443" width="89" height="36"/>
+                                <rect key="frame" x="224" y="438" width="89" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="Deal">
@@ -394,26 +394,39 @@
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="sTa-M3-bb2"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="enq-RX-nUp">
-                                <rect key="frame" x="127" y="426" width="51" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="valueChangedForGameMatcher:" destination="vXZ-lx-hvc" eventType="valueChanged" id="BYr-Ld-OWz"/>
-                                </connections>
-                            </switch>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aip-7a-C0v">
-                                <rect key="frame" x="13" y="385" width="300" height="21"/>
+                                <rect key="frame" x="14" y="383" width="293" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rCI-iL-nGC">
+                                <rect key="frame" x="99" y="442" width="123" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <segments>
+                                    <segment title="2-card"/>
+                                    <segment title="3-card"/>
+                                </segments>
+                                <connections>
+                                    <action selector="valueChangedForSegmentedControl:" destination="vXZ-lx-hvc" eventType="valueChanged" id="NmZ-YP-Zfi"/>
+                                </connections>
+                            </segmentedControl>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="aFh-Rx-Kmy">
+                                <rect key="frame" x="100" y="409" width="118" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="valueChangedForSlider:" destination="vXZ-lx-hvc" eventType="valueChanged" id="hf1-dT-PiV"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="descriptionLabel" destination="aip-7a-C0v" id="XG5-or-6XN"/>
-                        <outlet property="gameSelectorSwitch" destination="enq-RX-nUp" id="anF-Z8-HHb"/>
+                        <outlet property="gameSegmentedControl" destination="rCI-iL-nGC" id="s4z-6B-GTI"/>
+                        <outlet property="histotySlider" destination="aFh-Rx-Kmy" id="Plj-qG-qDr"/>
                         <outlet property="scoreLabel" destination="CMc-Fw-Hc3" id="a1r-yJ-UEj"/>
                         <outletCollection property="cardButtons" destination="Eq2-ka-vY4" id="8Sc-3g-eC2"/>
                         <outletCollection property="cardButtons" destination="hZ4-eC-jwo" id="Llg-Sg-c2K"/>
