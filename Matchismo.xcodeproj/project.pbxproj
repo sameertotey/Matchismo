@@ -28,6 +28,7 @@
 		055F5A3F19C23778005934ED /* MatchismoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 055F5A3E19C23778005934ED /* MatchismoTests.m */; };
 		05EE83F619C91FA300FB2641 /* SetCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EE83F519C91FA300FB2641 /* SetCard.m */; };
 		05EE83F919C9229400FB2641 /* SetCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EE83F819C9229400FB2641 /* SetCardDeck.m */; };
+		05EE83FC19C9439400FB2641 /* PlayingCardGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EE83FB19C9439400FB2641 /* PlayingCardGameViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,8 @@
 		05EE83F519C91FA300FB2641 /* SetCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetCard.m; path = Model/SetCard.m; sourceTree = "<group>"; };
 		05EE83F719C9229400FB2641 /* SetCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetCardDeck.h; path = Model/SetCardDeck.h; sourceTree = "<group>"; };
 		05EE83F819C9229400FB2641 /* SetCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetCardDeck.m; path = Model/SetCardDeck.m; sourceTree = "<group>"; };
+		05EE83FA19C9439400FB2641 /* PlayingCardGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardGameViewController.h; sourceTree = "<group>"; };
+		05EE83FB19C9439400FB2641 /* PlayingCardGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardGameViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				055F5A2519C23778005934ED /* Main.storyboard */,
+				05EE83FA19C9439400FB2641 /* PlayingCardGameViewController.h */,
+				05EE83FB19C9439400FB2641 /* PlayingCardGameViewController.m */,
 				055969C319C282B00022E412 /* Model */,
 				055F5A2819C23778005934ED /* CardGameViewController.h */,
 				055F5A2919C23778005934ED /* CardGameViewController.m */,
@@ -295,6 +300,7 @@
 			files = (
 				055F5A2419C23778005934ED /* CardGameAppDelegate.m in Sources */,
 				055F5A2A19C23778005934ED /* CardGameViewController.m in Sources */,
+				05EE83FC19C9439400FB2641 /* PlayingCardGameViewController.m in Sources */,
 				055F5A2019C23778005934ED /* main.m in Sources */,
 				055969C619C289D20022E412 /* PlayingCard.m in Sources */,
 				055969CF19C342480022E412 /* CardMatchingGame.m in Sources */,
