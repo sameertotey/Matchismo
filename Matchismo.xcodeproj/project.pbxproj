@@ -26,6 +26,7 @@
 		055F5A3519C23778005934ED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055F5A1719C23778005934ED /* UIKit.framework */; };
 		055F5A3D19C23778005934ED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 055F5A3B19C23778005934ED /* InfoPlist.strings */; };
 		055F5A3F19C23778005934ED /* MatchismoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 055F5A3E19C23778005934ED /* MatchismoTests.m */; };
+		05EE83F619C91FA300FB2641 /* SetCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EE83F519C91FA300FB2641 /* SetCard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		055F5A3A19C23778005934ED /* MatchismoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MatchismoTests-Info.plist"; sourceTree = "<group>"; };
 		055F5A3C19C23778005934ED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		055F5A3E19C23778005934ED /* MatchismoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchismoTests.m; sourceTree = "<group>"; };
+		05EE83F419C91FA300FB2641 /* SetCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetCard.h; path = Model/SetCard.h; sourceTree = "<group>"; };
+		05EE83F519C91FA300FB2641 /* SetCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetCard.m; path = Model/SetCard.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +100,8 @@
 		055969C319C282B00022E412 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				05EE83F419C91FA300FB2641 /* SetCard.h */,
+				05EE83F519C91FA300FB2641 /* SetCard.m */,
 				055969CD19C342480022E412 /* CardMatchingGame.h */,
 				055969CE19C342480022E412 /* CardMatchingGame.m */,
 				055969C419C289D20022E412 /* PlayingCard.h */,
@@ -291,6 +296,7 @@
 				055969CC19C2A3EA0022E412 /* PlayingCardDeck.m in Sources */,
 				055969C919C29C9B0022E412 /* Deck.m in Sources */,
 				055969C219C281A80022E412 /* Card.m in Sources */,
+				05EE83F619C91FA300FB2641 /* SetCard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
