@@ -8,6 +8,7 @@
 
 #import "CardGameViewController.h"
 #import "CardMatchingGame.h"
+#import "ShowActivityHistoryViewController.h"
 
 @interface CardGameViewController ()
 @property (strong, nonatomic) Deck *deck;
@@ -18,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *gameSegmentedControl;
 @property (strong, nonatomic) NSMutableArray *history; //of description (NSStrings)
-@property (weak, nonatomic) IBOutlet UISlider *histotySlider;
+@property (weak, nonatomic) IBOutlet UISlider *historySlider;
 @property (strong, nonatomic) NSString *actionDescription;
 @end
 
@@ -61,6 +62,11 @@
     return nil;
 }
 
+- (void)setGameNumMatchModeWith:(NSUInteger)num
+{
+    self.game.numMatchMode = num;
+}
+
 - (IBAction)touchCardButton:(UIButton *)sender {
     if (self.gameSegmentedControl.enabled) {
         self.gameSegmentedControl.enabled = NO;
@@ -75,7 +81,7 @@
     for (UIButton *cardButton in self.cardButtons) {
         NSUInteger cardButtonIndex = [self.cardButtons indexOfObject:cardButton];
         Card *card = [self.game cardAtIndex:cardButtonIndex];
-        [cardButton setTitle:[self titleForCard:card] forState:UIControlStateNormal];
+        [cardButton setAttributedTitle:[self titleForCard:card] forState:UIControlStateNormal];
         [cardButton setBackgroundImage:[self backgroundImageForCard:card]
                               forState:UIControlStateNormal];
         cardButton.enabled = !card.isMatched;
@@ -83,12 +89,17 @@
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld",
                             (long)self.game.score];
     [self setActionDescription];
-    [self.histotySlider setValue:1.0 animated:YES];
+    [self.historySlider setValue:1.0 animated:YES];
     [self updateDescriptionLabelText:[self.history count]];
 }
 
-- (NSString *)titleForCard:(Card *)card {
-    return card.chosen ? card.contents : @"";
+- (void)setTitleForCard:(Card *)card
+{
+}
+
+- (NSAttributedString *)titleForCard:(Card *)card {
+    NSAttributedString *title = [[NSAttributedString alloc] initWithString:card.chosen ? card.contents : @""];
+    return title;
 }
 
 - (UIImage *)backgroundImageForCard:(Card *)card {
@@ -122,5 +133,17 @@
     [self.history addObject:self.actionDescription];
     
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"isShowHistory"]) {
+        if ([segue.destinationViewController isKindOfClass:[ShowActivityHistoryViewController class]]) {
+            ShowActivityHistoryViewController *ahvc = (ShowActivityHistoryViewController *)segue.destinationViewController;
+            ahvc.history = self.history;
+        }
+    }
+}
+
+
 
 @end

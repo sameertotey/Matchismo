@@ -12,10 +12,10 @@
 
 - (NSString *)contents
 {
-    return nil;
+    return @"";
 }
 
-+ (BOOL)validSetNum:(SetNum)num
++ (BOOL)validSetNum:(SetNums)num
 {
     if ((num > 0) && (num <  maxNum)) {
         return YES;
@@ -43,9 +43,9 @@
     } else return NO;
 }
 
-- (void)setNum:(SetNum)num
+- (void)setNum:(SetNums)num
 {
-    if ([SetCard validSetNum:_num]){
+    if ([SetCard validSetNum:num]){
         _num = num;
     }
 }
@@ -95,6 +95,7 @@
     }
     return score;
 }
+
 
 
 @end

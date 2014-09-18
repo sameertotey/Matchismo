@@ -15,7 +15,7 @@ typedef enum {
     two,
     three,
     maxNum
-} SetNum;
+} SetNums;
 
 typedef enum {
     red = 1,
@@ -39,12 +39,12 @@ typedef enum {
 } SetSymbol;
 
 
-@property (nonatomic) SetNum num;
+@property (nonatomic) SetNums num;
 @property (nonatomic) SetColor color;
 @property (nonatomic) SetShading shading;
 @property (nonatomic) SetSymbol symbol;
 
-+ (BOOL)validSetNum:(SetNum)num;
++ (BOOL)validSetNum:(SetNums)num;
 + (BOOL)validSetColor:(SetColor)color;
 + (BOOL)validSetShading:(SetShading)shading;
 + (BOOL)validSetSymbol:(SetSymbol)symbol;

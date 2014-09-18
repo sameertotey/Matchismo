@@ -15,10 +15,10 @@
     self = [super init];
     
     if (self) {
-        for (SetNum num = 1 ; num < maxNum; num++) {
+        for (SetNums num = 1 ; num < maxNum; num++) {
             for (SetColor color = 1; color < maxColor; color++) {
-                for (SetSymbol symbol; symbol < maxSymbol; symbol++) {
-                    for (SetShading shading; shading < maxShading; shading++) {
+                for (SetSymbol symbol = 1; symbol < maxSymbol; symbol++) {
+                    for (SetShading shading = 1; shading < maxShading; shading++) {
                         SetCard *card = [[SetCard alloc] init];
                         card.num  = num;
                         card.color = color;

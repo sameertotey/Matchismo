@@ -10,4 +10,7 @@
 
 @interface CardGameViewController : UIViewController
 
+- (void)setGameNumMatchModeWith:(NSUInteger)num;
+- (void)updateUI ;
+
 @end

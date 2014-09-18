@@ -29,6 +29,8 @@
 		05EE83F619C91FA300FB2641 /* SetCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EE83F519C91FA300FB2641 /* SetCard.m */; };
 		05EE83F919C9229400FB2641 /* SetCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EE83F819C9229400FB2641 /* SetCardDeck.m */; };
 		05EE83FC19C9439400FB2641 /* PlayingCardGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EE83FB19C9439400FB2641 /* PlayingCardGameViewController.m */; };
+		05EE83FF19C9453900FB2641 /* SetCardGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EE83FE19C9453900FB2641 /* SetCardGameViewController.m */; };
+		05EE840219CB2D7300FB2641 /* ShowActivityHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EE840119CB2D7300FB2641 /* ShowActivityHistoryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,10 @@
 		05EE83F819C9229400FB2641 /* SetCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetCardDeck.m; path = Model/SetCardDeck.m; sourceTree = "<group>"; };
 		05EE83FA19C9439400FB2641 /* PlayingCardGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardGameViewController.h; sourceTree = "<group>"; };
 		05EE83FB19C9439400FB2641 /* PlayingCardGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardGameViewController.m; sourceTree = "<group>"; };
+		05EE83FD19C9453900FB2641 /* SetCardGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCardGameViewController.h; sourceTree = "<group>"; };
+		05EE83FE19C9453900FB2641 /* SetCardGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCardGameViewController.m; sourceTree = "<group>"; };
+		05EE840019CB2D7300FB2641 /* ShowActivityHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowActivityHistoryViewController.h; sourceTree = "<group>"; };
+		05EE840119CB2D7300FB2641 /* ShowActivityHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowActivityHistoryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,11 +164,15 @@
 			isa = PBXGroup;
 			children = (
 				055F5A2519C23778005934ED /* Main.storyboard */,
+				05EE83FD19C9453900FB2641 /* SetCardGameViewController.h */,
+				05EE83FE19C9453900FB2641 /* SetCardGameViewController.m */,
 				05EE83FA19C9439400FB2641 /* PlayingCardGameViewController.h */,
 				05EE83FB19C9439400FB2641 /* PlayingCardGameViewController.m */,
 				055969C319C282B00022E412 /* Model */,
 				055F5A2819C23778005934ED /* CardGameViewController.h */,
 				055F5A2919C23778005934ED /* CardGameViewController.m */,
+				05EE840019CB2D7300FB2641 /* ShowActivityHistoryViewController.h */,
+				05EE840119CB2D7300FB2641 /* ShowActivityHistoryViewController.m */,
 				055F5A2B19C23778005934ED /* Images.xcassets */,
 				055F5A1A19C23778005934ED /* Supporting Files */,
 			);
@@ -299,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				055F5A2419C23778005934ED /* CardGameAppDelegate.m in Sources */,
+				05EE83FF19C9453900FB2641 /* SetCardGameViewController.m in Sources */,
 				055F5A2A19C23778005934ED /* CardGameViewController.m in Sources */,
 				05EE83FC19C9439400FB2641 /* PlayingCardGameViewController.m in Sources */,
 				055F5A2019C23778005934ED /* main.m in Sources */,
@@ -306,6 +317,7 @@
 				055969CF19C342480022E412 /* CardMatchingGame.m in Sources */,
 				05EE83F919C9229400FB2641 /* SetCardDeck.m in Sources */,
 				055969CC19C2A3EA0022E412 /* PlayingCardDeck.m in Sources */,
+				05EE840219CB2D7300FB2641 /* ShowActivityHistoryViewController.m in Sources */,
 				055969C919C29C9B0022E412 /* Deck.m in Sources */,
 				055969C219C281A80022E412 /* Card.m in Sources */,
 				05EE83F619C91FA300FB2641 /* SetCard.m in Sources */,
